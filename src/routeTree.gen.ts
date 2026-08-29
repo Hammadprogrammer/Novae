@@ -10,7 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as NewArrivalsRouteImport } from './routes/new-arrivals'
 import { Route as PantsRouteImport } from './routes/pants'
+import { Route as SaleRouteImport } from './routes/sale'
 import { Route as ShirtsRouteImport } from './routes/shirts'
 import { Route as ShopRouteImport } from './routes/shop'
 
@@ -19,9 +23,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewArrivalsRoute = NewArrivalsRouteImport.update({
+  id: '/new-arrivals',
+  path: '/new-arrivals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PantsRoute = PantsRouteImport.update({
   id: '/pants',
   path: '/pants',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SaleRoute = SaleRouteImport.update({
+  id: '/sale',
+  path: '/sale',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShirtsRoute = ShirtsRouteImport.update({
@@ -37,34 +61,75 @@ const ShopRoute = ShopRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/new-arrivals': typeof NewArrivalsRoute
   '/pants': typeof PantsRoute
+  '/sale': typeof SaleRoute
   '/shirts': typeof ShirtsRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/new-arrivals': typeof NewArrivalsRoute
   '/pants': typeof PantsRoute
+  '/sale': typeof SaleRoute
   '/shirts': typeof ShirtsRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/new-arrivals': typeof NewArrivalsRoute
   '/pants': typeof PantsRoute
+  '/sale': typeof SaleRoute
   '/shirts': typeof ShirtsRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pants' | '/shirts' | '/shop'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/new-arrivals'
+    | '/pants'
+    | '/sale'
+    | '/shirts'
+    | '/shop'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pants' | '/shirts' | '/shop'
-  id: '__root__' | '/' | '/pants' | '/shirts' | '/shop'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/new-arrivals'
+    | '/pants'
+    | '/sale'
+    | '/shirts'
+    | '/shop'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/new-arrivals'
+    | '/pants'
+    | '/sale'
+    | '/shirts'
+    | '/shop'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  NewArrivalsRoute: typeof NewArrivalsRoute
   PantsRoute: typeof PantsRoute
+  SaleRoute: typeof SaleRoute
   ShirtsRoute: typeof ShirtsRoute
   ShopRoute: typeof ShopRoute
 }
@@ -78,11 +143,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-arrivals': {
+      id: '/new-arrivals'
+      path: '/new-arrivals'
+      fullPath: '/new-arrivals'
+      preLoaderRoute: typeof NewArrivalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pants': {
       id: '/pants'
       path: '/pants'
       fullPath: '/pants'
       preLoaderRoute: typeof PantsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sale': {
+      id: '/sale'
+      path: '/sale'
+      fullPath: '/sale'
+      preLoaderRoute: typeof SaleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shirts': {
@@ -104,7 +197,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  NewArrivalsRoute: NewArrivalsRoute,
   PantsRoute: PantsRoute,
+  SaleRoute: SaleRoute,
   ShirtsRoute: ShirtsRoute,
   ShopRoute: ShopRoute,
 }
