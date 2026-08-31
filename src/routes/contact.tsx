@@ -95,7 +95,7 @@ function Contact() {
           </div>
           <div>
             <p className="label-caps mb-2 text-accent">Customer care</p>
-            <p>+92 300 000 0000</p>
+            <p>03118270539</p>
             <p>care@novae.pk</p>
           </div>
           <div>
