@@ -101,6 +101,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        src: "https://cdn.zanderio.ai/widget/loader.js",
+        defer: true,
+        "data-id": "wdg_yrCsN1tg09ST87S6JTGf6o90",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
